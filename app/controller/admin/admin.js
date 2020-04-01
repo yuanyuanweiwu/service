@@ -15,9 +15,14 @@ class AdminController extends Controller {
       const openId = new Date().getTime();
       this.ctx.session.openId = { openId };
       this.ctx.body = { data: 'success', openId };
+    
     } else {
       this.ctx.body = { data: 'failed' };
     }
+  }
+  async getTpeInfo(){
+    const resType=await this.app.mysql.select('type')
+    this.ctx.body={data:resType}
   }
 }
 

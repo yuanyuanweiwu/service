@@ -24,6 +24,17 @@ class AdminController extends Controller {
     const resType=await this.app.mysql.select('type')
     this.ctx.body={data:resType}
   }
+  async addArticle(){
+    let tmpArticle=this.ctx.request.body
+    const result= await this.app.mysql.insert('article',tmpArticle)
+    console.log(result)
+    const isSuccess=result.affectedRows===1
+    const insertId=result.insertId
+    this.ctx.body={
+      isSuccess,
+      insertId
+    }
+  }
 }
 
 module.exports = AdminController;

@@ -46,10 +46,10 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: [ '*' ],
+    domainWhiteList: [ 'http://129.211.122.170:8080' ,'http://129.211.122.170:80'],
   };
   config.cors = {
-    origin: '*',
+   // origin: '*',
     credentials:true,//允许cookie跨域
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
